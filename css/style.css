@@ -22,18 +22,18 @@
 	padding-top: 30px;
 }
 .topContainer .appName{
-	background:rgba(255,255,255,0.5);
+	background:rgba(255,255,255,0.7);
 	color: black;
 	font-size: 50pt;
 	font-weight: bold;
 }
 .topContainer .forTahoe{
-	background:rgba(255,255,255,0.5);
+	background:rgba(255,255,255,0.7);
 	color: black;
 	font-size: 30pt;
 }
 .topContainer .slogan{
-	background:rgba(255,255,255,0.5);
+	background:rgba(255,255,255,0.7);
 	color: black;
 	font-size: 25pt;
 }
@@ -66,11 +66,14 @@
 }
 /* Info container*/
 .infoContainer{
-	height: 300px;
 	padding-left: 200px;
 	padding-right: 200px;
 	padding-top: 80px;
+	padding-bottom: 80px;
 	font-size: 18pt;
+}
+.infoContainer-mobile{
+	display: none;
 }
 /* Map */
 #map { 
@@ -83,8 +86,43 @@
 	padding: 40px;
 }
 
-
-
+/* Responsive elements iPhone 6*/
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2) {
+	.imgContainer{
+		display: none;
+	}
+	.downloadButton{
+		margin-top: 150px;
+	}
+	.btn-apple{
+		margin-bottom: 10px;
+	}
+	#map{
+		display: none;
+	}
+	.infoContainer{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.infoContainer .infoItem{
+		margin-bottom: 20px;
+	}
+	.topContainer{
+		margin-bottom: 200px;
+	}
+	.topContainer .slogan{
+		font-size: 20pt;
+	}
+}
+/* Responsive elements 983 X 667*/
+@media only screen and (max-width: 988px) {
+    .imgContainer {
+        display: none;
+    }
+}
 
 
 

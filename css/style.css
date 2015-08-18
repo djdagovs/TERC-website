@@ -122,6 +122,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .imgContainer {
         display: none;
     }
+	.infoContainer{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.infoContainer .infoItem{
+		margin-bottom: 20px;
+	}
 }
 
 

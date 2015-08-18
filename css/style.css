@@ -1,0 +1,94 @@
+/* Navigation */
+.navbar{
+	margin: 0px;
+}
+/* Top Container*/
+.topContainer{
+	width: 100%;
+	height: 100vh;
+	padding: 20px;
+	background-image: url("../img/image001.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+.topContainer .topText{
+	padding-top: 160px;
+	padding-left: 40px;
+}
+.topContainer .imgContainer{
+	padding-top: 30px;
+}
+.topContainer .appName{
+	background:rgba(255,255,255,0.5);
+	color: black;
+	font-size: 50pt;
+	font-weight: bold;
+}
+.topContainer .forTahoe{
+	background:rgba(255,255,255,0.5);
+	color: black;
+	font-size: 30pt;
+}
+.topContainer .slogan{
+	background:rgba(255,255,255,0.5);
+	color: black;
+	font-size: 25pt;
+}
+.downloadButton{
+	margin-top: 100px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.downloadButton .btn-apple{
+	height: 60px;
+	width: 300px;
+	font-size: 20pt;
+	background: #0099FF;
+	border: 1px solid #0099FF;
+}
+.downloadButton .btn-apple:active{
+	background: #0066FF;
+	border: 1px solid #0066FF;
+}
+.downloadButton .btn-android{
+	height: 60px;
+	width: 300px;
+	font-size: 20pt;
+	background: #33CC00;
+	border: 1px solid #33CC00;
+}
+.downloadButton .btn-android:active{
+	background: #339933;
+	border: 1px solid #339933;
+}
+/* Info container*/
+.infoContainer{
+	height: 300px;
+	padding-left: 200px;
+	padding-right: 200px;
+	padding-top: 80px;
+	font-size: 18pt;
+}
+/* Map */
+#map { 
+	width:100%;
+	height: 600px;
+}
+/* Footer */
+.footer{
+	text-align: center;
+	padding: 40px;
+}
+
+
+
+
+
+
+/*Helper methods:*/
+.unselectable {
+    user-drag: none; -moz-user-select: none; -webkit-user-drag: none;
+}

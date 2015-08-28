@@ -54,8 +54,8 @@
 	  					<li class="dropdown">
 	  						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download App<span class="caret"></span></a>
 	  						<ul class="dropdown-menu">
-	  							<li><a href="https://itunes.apple.com/us/app/citizen-science-tahoe/id1028521893?ls=1&mt=8"><i class="fa fa-apple"></i> iOS app</a></li>
-	  							<li><a href="#" data-toggle="modal" data-target="#android"><i class="fa fa-android"></i> Android app</a></li>
+	  							<li><a href="https://itunes.apple.com/us/app/citizen-science-tahoe/id1028521893?ls=1&mt=8" onClick="ga('send', 'event', 'Button', 'Click', 'Apple-Small');"><i class="fa fa-apple"></i> Apple app</a></li>
+	  							<li><a href="https://play.google.com/store/apps/details?id=com.terc.app" onClick="ga('send', 'event', 'Button', 'Click', 'Android-Small');"><i class="fa fa-android"></i> Android app</a></li>
 	  						</ul>
 	  					</li>
 	  				</ul>
@@ -67,12 +67,6 @@
 	  		</div><!-- /.container-fluid -->
 	  	</nav>
 	  	
-	  	<!-- Android email alert -->
-	  	<div class="alert alert-warning fade in" id="androidSuccess" style="display:none;">
-	  		<a href="#" class="close" data-dismiss="alert">&times;</a>
-	  		We'll send you an email as soon as the Android version is ready for you.
-	  	</div>
-
 	  	<!-- Top Container -->
 	  	<div class="topContainer">
 	  		<div class="row">
@@ -84,8 +78,8 @@
 	  						<span class="slogan">Just go to the beach!</span>
 	  					</div>
 	  					<div class="downloadButton">
-	  						<a class="btn btn-apple btn-primary btn-lg" href="https://itunes.apple.com/us/app/citizen-science-tahoe/id1028521893?ls=1&mt=8" role="button"><i class="fa fa-apple"></i> <strong>iOS</strong> app</a>
-	  						<a class="btn btn-android btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#android"><i class="fa fa-android"></i> <strong>Android</strong> app</a>
+	  						<a class="btn btn-apple btn-primary btn-lg" href="https://itunes.apple.com/us/app/citizen-science-tahoe/id1028521893?ls=1&mt=8" role="button" onClick="ga('send', 'event', 'Button', 'Click', 'Apple-Big');"><i class="fa fa-apple"></i> <strong>Apple</strong> app</a>
+	  						<a class="btn btn-android btn-primary btn-lg" href="https://play.google.com/store/apps/details?id=com.terc.app" role="button" onClick="ga('send', 'event', 'Button', 'Click', 'Android-Big');"><i class="fa fa-android"></i> <strong>Android</strong> app</a>
 	  					</div>
 	  				</div>
 	  			</div>
@@ -140,22 +134,6 @@
 	  		</div>
 	  	</div>
 
-	  	<!-- Android Modal -->
-	  	<div class="modal fade" id="android" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  		<div class="modal-dialog" role="document">
-	  			<div class="modal-content">
-	  				<div class="modal-header">
-	  					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  					<h4 class="modal-title" id="myModalLabel">Android App</h4>
-	  				</div>
-	  				<div class="modal-body">
-	  					The Android App will arrive within the next week. Please enter your email, and we'll make sure you get notified when the Android App comes to the Play Store:<br><br>
-	  					<input type="email" style="width: 100%" placeholder="john@email.com" id="androidEmail"><br><br>
-	  					<button type="button" class="btn btn-primary" onClick="android()">Submit</button>
-	  				</div>
-	  			</div>
-	  		</div>
-	  	</div>
 	  	<script>
 	  	L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhaHplYiIsImEiOiJiOWMxYzQyM2ZkZTcxYTlmYzY1YjFjMWQ1ZTZiNjIwOCJ9.kMJr0l9QjZ9r1dzk0mFDeA';
 	  	var map = L.mapbox.map('map', 'mapbox.streets', {zoomControl:false})

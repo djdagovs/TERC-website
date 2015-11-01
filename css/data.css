@@ -1,0 +1,66 @@
+.options{
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	font-size: 20pt;
+}
+.options .badge{
+	padding: 5px;
+}
+.options-algae{
+	background: #1abc9c;
+	color: white;
+}
+.options-algae .badge{
+	background: #16a085;
+	padding: 5px;
+}
+.options-species{
+	background: #2ecc71;
+	color: white;
+}
+.options-species .badge{
+	background: #27ae60;
+	padding: 5px;
+}
+.options-water{
+	background: #9b59b6;
+	color: white;
+}
+.options-water .badge{
+	background: #8e44ad;
+	padding: 5px;
+}
+.options-beach{
+	background: #e67e22;
+	color: white;
+}
+.options-beach .badge{
+	background: #d35400;
+	padding: 5px;
+}
+.options-link{
+	color: white;
+}
+.options-link{
+	color: white;
+}
+.options-link:hover{
+	color: white;
+	text-decoration: underline;
+}
+.options-selected{
+	box-shadow: 0px 5px 15px #888888;
+}
+/* Map style */
+#map{
+	margin-top: 40px;
+	padding-bottom: 600px;
+	margin-bottom: 40px;
+}
+.maps-table{
+	width: 100%;
+}
+.maps-table tr{
+	padding-bottom: 40px;
+}

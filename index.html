@@ -111,9 +111,6 @@
 	  		</div>
 	  	</div>
 
-	  	<!-- Map  -->
-	  	<div id="map"></div>
-
 	  	<!-- About Modal -->
 	  	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  		<div class="modal-dialog" role="document">
@@ -133,19 +130,6 @@
 	  			</div>
 	  		</div>
 	  	</div>
-
-	  	<script>
-	  	L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhaHplYiIsImEiOiJiOWMxYzQyM2ZkZTcxYTlmYzY1YjFjMWQ1ZTZiNjIwOCJ9.kMJr0l9QjZ9r1dzk0mFDeA';
-	  	var map = L.mapbox.map('map', 'mapbox.streets', {zoomControl:false})
-	  	.setView([39.095, -120.100], 11);
-	    // Disable drag and zoom handlers.
-	    map.touchZoom.disable();
-	    map.doubleClickZoom.disable();
-	    map.scrollWheelZoom.disable();
-
-		// Disable tap handler, if present.
-		if (map.tap) map.tap.disable();
-		</script>
 
 		<!-- Footer -->
 		<div class="footer">App and Website built for <a href="http://terc.ucdavis.edu/">UC Davis TERC</a> by <a href="http://shahzeb.co">Shahzeb Khan</a>. &copy; 2015</div>

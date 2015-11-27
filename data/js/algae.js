@@ -1,6 +1,29 @@
 // Pars init
 Parse.initialize("BbDcEO7NKHStcQzJsx40YJ5EaEfVUIdyQZwx1zBM", "NnhaMPrC3SjUem7lhPtrIX7oOejmm0Lcw2hcuRAt");
 
+// When one of the options are clicked
+function option_clicked(id){
+	id = parseInt(id);
+	var links = {
+		'link1':'algae.html',
+		'link2':'species.html',
+		'link3':'water.html',
+		'link4':'beach.html'
+	};
+	if(id == 1){
+		window.location=links.link1;
+	}
+	if(id == 2){
+		window.location=links.link2;
+	}
+	if(id == 3){
+		window.location=links.link3;
+	}
+	if(id == 4){
+		window.location=links.link4;
+	}
+}
+
 // Get the counts from the db's for the pill's
 var Algae = Parse.Object.extend("Algae");
 var queryObject = new Parse.Query(Algae);
@@ -37,6 +60,7 @@ function initMap() {
 	var mapOptions = {
 		zoom: 11,
 		center: myLatlng,
+		streetViewControl: false,
 		mapTypeId: google.maps.MapTypeId.HYBRID
 	}
 
@@ -66,8 +90,11 @@ function initMap() {
 				// Create a new point on the map
 				var latlng = new google.maps.LatLng(lat, longit);
 				var imgUrl = "#";
+				
+				var fillColor = "#78BE20";
 				if(current.get("Image") != undefined){
 					imgUrl = current.get("Image")._url;
+					fillColor = "#ffffff";
 				}
 
 				var thisMarker = new google.maps.Marker({
@@ -81,12 +108,13 @@ function initMap() {
 					observations: current.get("Observations"),
 					rocks: current.get("Rocks"),
 					smell: current.get("Smell"),
-					visible: current.get("visible"),
+					visible_val: current.get("Visible"),
 					createdAt: current.get("createdAt"),
+					userId: current.get("User"),
 					icon: {
 					    path: google.maps.SymbolPath.CIRCLE,
-					    strokeColor: "#16a085",
-					    fillColor: "#1abc9c",
+					    strokeColor: "#78BE20",
+					    fillColor: fillColor,
 					    fillOpacity: 1,
 					    scale: 5
 					},
@@ -96,72 +124,105 @@ function initMap() {
 				});
 				google.maps.event.addListener(thisMarker, 'click', function() {
 
+					// Log whichever point is clicked on
+					console.log(this.id);
+
 					var contentString = '<div id="content">'+
 					'<div id="siteNotice">'+
 					'</div>'+
 					'<h1 id="firstHeading" class="firstHeading">Algae Observation</h1>'+
 					'<div id="bodyContent">'+
-					'<table class="maps-table">'+
+					'<table class="maps-table">';
+					if(this.rocks != "" && this.rocks != undefined){
+						var algae = "";
+						if(this.visible_val == "No"){
+							algae = "No.";
+						}
+						if(this.rocks == "Slimy"){
+							algae = "Yes, slimy thin layer on the rocks.";
+						}
+						if(this.rocks == "Thick"){
+							algae = "Yes, thick growth on the rocks.";
+						}
+						contentString = contentString +
 						'<tr>'+
-							'<td><b>ID</b>'+
+							'<td><b>Algae observed?</b>'+
 							'</td>'+
-							'<td>'+this.id+
+							'<td>'+algae+
 							'</td>'+
-						'</tr>'+
+						'</tr>';
+					}
+					if(this.smell != "" && this.smell != undefined){
+						contentString = contentString +
 						'<tr>'+
-							'<td><b>Dog Poop</b>'+
+							'<td><b>Was there a smell?</b>'+
 							'</td>'+
-							'<td>'+this.dog_poop+
+							'<td>'+this.smell+
 							'</td>'+
-						'</tr>'+
+						'</tr>';
+					}
+					if(this.mats != "" && this.mats != undefined){
+						contentString = contentString +
 						'<tr>'+
-							'<td><b>Goose Poop</b>'+
-							'</td>'+
-							'<td>'+this.goose_poop+
-							'</td>'+
-						'</tr>'+
-						'<tr>'+
-							'<td><b>Inflow</b>'+
-							'</td>'+
-							'<td>'+this.inflow+
-							'</td>'+
-						'</tr>'+
-						'<tr>'+
-							'<td><b>Lawn</b>'+
-							'</td>'+
-							'<td>'+this.lawn+
-							'</td>'+
-						'</tr>'+
-						'<tr>'+
-							'<td><b>Mats</b>'+
+							'<td><b>Were mats of algae spotted?</b>'+
 							'</td>'+
 							'<td>'+this.mats+
 							'</td>'+
-						'</tr>'+
+						'</tr>';
+					}
+					var observed = 0;
+					var saw = [];
+					if(this.lawn == "Yes"){
+						saw[observed] = "fertilized lawn";
+						observed = observed + 1;
+					}
+					if(this.dog_poop == "Yes"){
+						saw[observed] = "dog poop";
+						observed = observed + 1;
+					}
+					if(this.goose_poop == "Yes"){
+						saw[observed] = "goose poop";
+						observed = observed + 1;
+					}
+					if(this.inflow == "Yes"){
+						saw[observed] = "water inflow";
+						observed = observed + 1;
+					}
+					if(observed != 0){
+						contentString = contentString +
+						'<tr>'+
+							'<td><b>The following were observed:</b>'+
+							'</td>'+
+							'<td class="caps-me">';
+						for(i = 0; i < observed; i++){
+							contentString = contentString + saw[i] + ', ';
+						}
+						contentString = contentString + 
+							'</td>'+
+						'</tr>';
+					}
+					if(this.observations != "" && this.observations != undefined){
+						contentString = contentString +
 						'<tr>'+
 							'<td><b>Observations</b>'+
 							'</td>'+
 							'<td>'+this.observations+
 							'</td>'+
-						'</tr>'+
+						'</tr>';
+					}
+					if(this.createdAt != "" && this.createdAt != undefined){
+						var h = this.createdAt.getHours();
+						var ampm = h >= 12 ? 'pm' : 'am';
+						h = h % 12;
+						h = h ? h : 12;
+						contentString = contentString +
 						'<tr>'+
-							'<td><b>Rocks</b>'+
+							'<td><b>Observation date</b>'+
 							'</td>'+
-							'<td>'+this.rocks+
-							'</td>'+
-						'</tr>'+
-						'<tr>'+
-							'<td><b>Smell</b>'+
-							'</td>'+
-							'<td>'+this.smell+
-							'</td>'+
-						'</tr>'+
-						'<tr>'+
-							'<td><b>Date</b>'+
-							'</td>'+
-							'<td>'+this.createdAt+
+							'<td>'+h+':'+this.createdAt.getMinutes()+' '+ampm+' '+this.createdAt.getMonth()+'/'+this.createdAt.getDate()+'/'+this.createdAt.getFullYear()+
 							'</td>'+
 						'</tr>';
+					}
 
 					if(this.image !== "#"){
 						contentString = contentString + 
@@ -170,18 +231,35 @@ function initMap() {
 								'</td>'+
 								'<td><a href="'+this.image+'" target="_blank"><img src="'+this.image+'" width="200px"></a>'+
 								'</td>'+
-							'</tr>'+
-						'</table>'+
-						'</div>'+
-						'</div>';
-					}else{
-						contentString = contentString + 
-						'</table>'+
-						'</div>'+
-						'</div>';
+							'</tr>';
 					}
 
-					infowindow.setContent(contentString);
+					var q = new Parse.Query(Parse.User);
+					q.equalTo("objectId", this.userId.id);
+					q.find({
+						success: function(found) {
+							var username = found[0].getUsername();
+							if(found[0].get("anon") == true){
+								username = "Anonymous user";
+							}
+							if(found[0].get("fbid") != undefined){
+								username = found[0].get("name").split(' ').slice(0, -1).join(' ');
+							}
+							contentString = contentString +
+							'<tr>'+
+								'<td><b>By the following user:</b>'+
+								'</td>'+
+								'<td>'+username+
+								'</td>'+
+							'</tr>'+
+							'</table>'+
+							'</div>'+
+							'</div>';
+
+						infowindow.setContent(contentString);
+						}
+					});
+
 					infowindow.open(map, this);
 				});
 			}

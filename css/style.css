@@ -80,6 +80,9 @@
 	width:100%;
 	height: 600px;
 }
+.maps-table td{
+	padding-left: 20px !important;
+}
 /* Footer */
 .footer{
 	text-align: center;

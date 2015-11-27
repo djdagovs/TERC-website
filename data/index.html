@@ -46,23 +46,84 @@
 			$(".badge-beach").html(results.length);
 		}
 	});
+
+	// When one of the options are clicked
+	function option_clicked(id){
+		id = parseInt(id);
+		var links = {
+			'link1':'algae.html',
+			'link2':'species.html',
+			'link3':'water.html',
+			'link4':'beach.html'
+		};
+		if(id == 1){
+			window.location=links.link1;
+		}
+		if(id == 2){
+			window.location=links.link2;
+		}
+		if(id == 3){
+			window.location=links.link3;
+		}
+		if(id == 4){
+			window.location=links.link4;
+		}
+	}
 </script>
 </head>
 <body>
+
+	  	<!-- Navigation -->
+	  	<nav class="navbar navbar-default">
+	  		<div class="container-fluid">
+	  			<!-- Brand and toggle get grouped for better mobile display -->
+	  			<div class="navbar-header">
+	  				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	  					<span class="sr-only">Toggle navigation</span>
+	  					<span class="icon-bar"></span>
+	  					<span class="icon-bar"></span>
+	  					<span class="icon-bar"></span>
+	  				</button>
+	  				<a class="navbar-brand" href="#">Citizen Science App</a>
+	  			</div>
+
+	  			<!-- Collect the nav links, forms, and other content for toggling -->
+	  			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  				<ul class="nav navbar-nav">
+	  					<li><a href="../">Home</a></li>
+	  					<li><a href="#" data-toggle="modal" data-target="#myModal">About</a></li>
+	  					<li><a href="../guide.pdf">Instruction Manual</a></li>
+	  					<li class="dropdown">
+	  						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download App<span class="caret"></span></a>
+	  						<ul class="dropdown-menu">
+	  							<li><a href="https://itunes.apple.com/us/app/citizen-science-tahoe/id1028521893?ls=1&mt=8" onClick="ga('send', 'event', 'Button', 'Click', 'Apple-Small');"><i class="fa fa-apple"></i> Apple app</a></li>
+	  							<li><a href="https://play.google.com/store/apps/details?id=com.terc.app" onClick="ga('send', 'event', 'Button', 'Click', 'Android-Small');"><i class="fa fa-android"></i> Android app</a></li>
+	  						</ul>
+	  					</li>
+	  				</ul>
+	  				<ul class="nav navbar-nav navbar-right">
+	  					<li><a href="http://terc.ucdavis.edu/">UC Davis TERC</a></li>
+	  					<li><a href="mailto:tercinfo@ucdavis.edu">Contact us</a></li>
+	  				</ul>
+	  			</div><!-- /.navbar-collapse -->
+	  		</div><!-- /.container-fluid -->
+	  	</nav>
+
+
 	<div class="container">
-		<h1>Realtime Data.</h1>
+		<h1>Select one:</h1>
 		<div class="row">
-			<div class="col-md-3 options options-algae">
+			<div class="col-md-3 options options-algae" onClick="option_clicked(1)">
 				<a href="algae.html" class="options-link">Algae <span class="badge badge-algae">...</span></a>
 			</div>
-			<div class="col-md-3 options options-species">
+			<div class="col-md-3 options options-species" onClick="option_clicked(2)">
 				<a href="species.html" class="options-link">Local Species <span class="badge badge-species">...</span></a>
 			</div>
-			<div class="col-md-3 options options-water">
+			<div class="col-md-3 options options-water" onClick="option_clicked(3)">
 				<a href="water.html" class="options-link">Water Quality <span class="badge badge-water">...</span></a>
 			</div>
-			<div class="col-md-3 options options-beach">
-				<a href="beach.html" class="options-link">Beach Condtions <span class="badge badge-beach">...</span></a>
+			<div class="col-md-3 options options-beach" onClick="option_clicked(4)">
+				<a href="beach.html" class="options-link">Beach <span class="badge badge-beach">...</span></a>
 			</div>
 		</div>
 	</div>

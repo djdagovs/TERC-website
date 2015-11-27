@@ -3,40 +3,41 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 	font-size: 20pt;
+	cursor: pointer;
 }
 .options .badge{
 	padding: 5px;
 }
 .options-algae{
-	background: #1abc9c;
+	background: #78BE20;
 	color: white;
 }
 .options-algae .badge{
-	background: #16a085;
+	background: #78BE20;
 	padding: 5px;
 }
 .options-species{
-	background: #2ecc71;
+	background: #642667;
 	color: white;
 }
 .options-species .badge{
-	background: #27ae60;
+	background: #642667;
 	padding: 5px;
 }
 .options-water{
-	background: #9b59b6;
+	background: #00B5E2;
 	color: white;
 }
 .options-water .badge{
-	background: #8e44ad;
+	background: #00B5E2;
 	padding: 5px;
 }
 .options-beach{
-	background: #e67e22;
+	background: #ED8B00;
 	color: white;
 }
 .options-beach .badge{
-	background: #d35400;
+	background: #ED8B00;
 	padding: 5px;
 }
 .options-link{
@@ -52,6 +53,29 @@
 .options-selected{
 	box-shadow: 0px 5px 15px #888888;
 }
+/* Download buttons */
+.downloadButton .btn-apple{
+	height: auto;
+	width: auto;
+	font-size: 12pt;
+	background: #0099FF;
+	border: 1px solid #0099FF;
+}
+.downloadButton .btn-apple:active{
+	background: #0066FF;
+	border: 1px solid #0066FF;
+}
+.downloadButton .btn-android{
+	height: auto;
+	width: auto;
+	font-size: 12pt;
+	background: #33CC00;
+	border: 1px solid #33CC00;
+}
+.downloadButton .btn-android:active{
+	background: #339933;
+	border: 1px solid #339933;
+}
 /* Map style */
 #map{
 	margin-top: 40px;
@@ -61,6 +85,18 @@
 .maps-table{
 	width: 100%;
 }
+.maps-table td{
+	padding-left: 20px !important;
+}
+.maps-table .caps-me{
+	text-transform: capitalize;
+}
 .maps-table tr{
 	padding-bottom: 40px;
+}
+/*Share button style*/
+#share-buttons{
+	text-align: center;
+	padding: 30px;
+	margin-bottom: 20px;
 }

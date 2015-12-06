@@ -13,21 +13,6 @@
 	      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	      <link rel="stylesheet" href="css/style.css">
 	      <link rel="icon" href="http://terc.ucdavis.edu/favicon.ico">
-	      <!-- Map box -->
-	      <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-	      <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet'/>
-	      <script>
-	      function android(){
-	      	Parse.initialize("BbDcEO7NKHStcQzJsx40YJ5EaEfVUIdyQZwx1zBM", "NnhaMPrC3SjUem7lhPtrIX7oOejmm0Lcw2hcuRAt");
-	      	var Android = Parse.Object.extend("Android");
-	      	var androidObj = new Android();
-	      	var emailInput = $("#androidEmail").val();
-	      	androidObj.save({email: emailInput}).then(function(object) {
-	      		$("#android").modal('hide');
-	      		$("#androidSuccess").fadeIn();
-	      	});
-	      }
-	      </script>
 	  </head>
 	  <body>
 
@@ -51,6 +36,7 @@
 	  					<li class="active"><a href="#">Home</a></li>
 	  					<li><a href="#" data-toggle="modal" data-target="#myModal">About</a></li>
 	  					<li><a href="guide.pdf">Instruction Manual</a></li>
+							<li><a href="/data">Data</a></li>
 	  					<li class="dropdown">
 	  						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download App<span class="caret"></span></a>
 	  						<ul class="dropdown-menu">
@@ -66,7 +52,7 @@
 	  			</div><!-- /.navbar-collapse -->
 	  		</div><!-- /.container-fluid -->
 	  	</nav>
-	  	
+
 	  	<!-- Top Container -->
 	  	<div class="topContainer">
 	  		<div class="row">
@@ -110,6 +96,10 @@
 	  			</div>
 	  		</div>
 	  	</div>
+
+			<div class="dataContainer">
+				<center><a href="/data" class="btn btn-primary btn-lg">View Data</a></center>
+			</div>
 
 	  	<!-- About Modal -->
 	  	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
